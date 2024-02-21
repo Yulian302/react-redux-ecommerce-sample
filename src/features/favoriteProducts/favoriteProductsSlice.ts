@@ -15,9 +15,9 @@ export const removeProduct: ActionCreator = (product: Product) => {
   };
 };
 
-export const clearAll: ActionCreator = (product: Product) => {
+export const clearAllFavorites: ActionCreator = (product: Product) => {
   return {
-    type: "favoriteProducts/clearAll",
+    type: "favoriteProducts/clearAllFavorites",
   };
 };
 const initialFavoriteProductsState: Products = [];
@@ -27,14 +27,21 @@ export const favoriteProductsReducer: Reducer = (
 ) => {
   switch (action.type) {
     case "favoriteProducts/addProduct": {
-      return state.concat(action.payload);
+      const existingProduct = state.find(
+        (product: Product) => product.id === action.payload.id,
+      );
+      if (existingProduct) {
+        return state;
+      } else {
+        return state.concat(action.payload);
+      }
     }
     case "favoriteProducts/removeProduct": {
       return state.filter(
         (product: Product) => product.id !== action.payload.id,
       );
     }
-    case "favoriteProducts/clearAll": {
+    case "favoriteProducts/clearAllFavorites": {
       return [];
     }
     default: {

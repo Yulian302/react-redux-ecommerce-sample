@@ -17,7 +17,7 @@ const Products = () => {
     dispatch(addToCart(product));
   };
   return (
-    <div>
+    <div className="my-10">
       <ul className="flex justify-start gap-3 flex-wrap">
         {products.map((product: any, id: number) => (
           <ProductComponent product={product} id={id} />
