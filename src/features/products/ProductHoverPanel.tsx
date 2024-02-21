@@ -10,12 +10,10 @@ const ProductHoverPanel = ({ product }: { product: Product }) => {
     dispatch(addToCart(product));
   };
   return (
-    <div className="flex justify-center">
-      <button className="rounded bg-gray-600 text-white p-2 mr-2">
-        Details
-      </button>
+    <div className="absolute w-full h-full flex flex-col justify-center gap-2 bg-gray-100 opacity-90 panel-animation">
+      <button className="rounded bg-gray-600 text-white p-2">Details</button>
       <button
-        className="rounded bg-green-700 text-white p-2 ml-2"
+        className="rounded bg-green-700 text-white p-2"
         onClick={handleAddToCart}
       >
         Add To Cart

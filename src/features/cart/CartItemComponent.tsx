@@ -43,12 +43,12 @@ const CartItemComponent = ({
         <button className="btn btn-link px-2">
           <i className="fas fa-minus"></i>
         </button>
-
         <input
+          name={item.name}
           min={1}
-          defaultValue={item.quantity}
+          value={item.quantity}
           type="number"
-          className="form-control form-control-sm"
+          className="form-control"
           onChange={(e: any) =>
             handleCartItemQuantityChange(item, e.target.value)
           }

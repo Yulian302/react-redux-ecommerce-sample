@@ -12,7 +12,7 @@ import { Product as ProductType } from "./types";
 import { Dispatch } from "redux";
 import { MdFavorite } from "react-icons/md";
 
-const Product = ({ product, id }: any) => {
+const Product = ({ product }: any) => {
   const dispatch: Dispatch<Action> = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
   const currency = useSelector((state: RootState) => state.currency);
@@ -33,8 +33,7 @@ const Product = ({ product, id }: any) => {
   };
   return (
     <li
-      key={id}
-      className="max-w-[15rem] flex flex-col items-center gap-2 cursor-pointer bg-gray-100 p-3 relative"
+      className="max-w-[15rem] flex flex-col items-center gap-2 cursor-pointer bg-gray-100 relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
